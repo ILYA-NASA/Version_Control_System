@@ -1,5 +1,5 @@
 fun main() {
-    val inputList = readln().split(" ").map { it }.toMutableList()
+    val inputList = readln().split(" ").toMutableList()
     var longestIndex = 0
     var longestLength = inputList[longestIndex].length
     inputList.forEach {
