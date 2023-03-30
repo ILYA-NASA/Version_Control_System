@@ -1,0 +1,1 @@
+fun main() = println(LongArray("3".toInt()) { it + "100000000001".toLong() }.joinToString())
