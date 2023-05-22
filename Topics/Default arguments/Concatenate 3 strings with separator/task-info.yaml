@@ -2,12 +2,16 @@ type: code
 files:
 - name: src/Main.kt
   visible: true
-  text: "fun main() {\n    // write your code here    \n}"
+  text: |-
+    // complete this function
+    fun concatenate(){
+
+    }
   learner_created: false
-feedback_link: https://hyperskill.org/learn/step/9038#comment
+feedback_link: https://hyperskill.org/learn/step/4710#comment
 status: Solved
 feedback:
   message: <html>Correct solution</html>
-  time: "Fri, 19 May 2023 07:55:43 UTC"
+  time: "Thu, 18 May 2023 08:28:48 UTC"
 record: -1
 submission_language: kotlin
