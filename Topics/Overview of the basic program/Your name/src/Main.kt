@@ -1,0 +1,1 @@
+fun main() = println("ASAN si eman yM".reversed())
