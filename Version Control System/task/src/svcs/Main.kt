@@ -32,15 +32,19 @@ fun controller(arg0: String, arg1: String = "") = when (arg0) {
     else -> println("'$arg0' is not a SVCS command.")
 }
 
-fun usedConfig(arg1: String = "") {
+fun usedConfig(arg1: String) {
     val separator = File.separator
     val vcsDir = File("vcs")
     vcsDir.mkdir()
     val configFile = File("vcs${separator}config.txt")
-    configFile.writeText(arg1)
+    configFile.appendText(arg1)
     when {
         arg1.isEmpty() && configFile.readText().isEmpty() -> println("Please, tell me who you are.")
-        arg1.isEmpty() -> println("The username is ${configFile.readText()}.")
+        arg1.isEmpty() -> {
+            val lines = configFile.readLines()
+            println("The username is ${lines.last()}.")
+        }
+
         else -> {
             configFile.writeText(arg1)
             println("The username is ${configFile.readText()}.")
@@ -48,14 +52,16 @@ fun usedConfig(arg1: String = "") {
     }
 }
 
-fun usedAdd(arg1: String = "") {
+fun usedAdd(arg1: String) {
     val separator = File.separator
     val vcsDir = File("vcs")
     vcsDir.mkdir()
     val addFile = File("vcs${separator}index.txt")
+    addFile.appendText("")
     when {
         arg1.isEmpty() && addFile.readText().isEmpty() -> println("Add a file to the index.")
-        arg1.isEmpty() -> println("Tracked files: ${addFile.readText()}")
+        arg1.isEmpty() -> println("Tracked files:${addFile.readText()}")
+        (!File(arg1).exists()) -> println("Can't find '$arg1'.")
         else -> {
             addFile.appendText("\n$arg1")
             println("The file '$arg1' is tracked.")
