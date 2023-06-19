@@ -1,6 +1,5 @@
 fun main() {
     val url = readln()
-//    val url = "https://target.com/index.html?port=8080&cookie=&host=localhost"
     val urlList: List<String> = url.substringAfter('?').split("&")
     for (s in urlList) {
         if (s[s.length - 1] == '=') {
