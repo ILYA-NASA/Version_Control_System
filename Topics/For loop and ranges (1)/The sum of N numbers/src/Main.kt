@@ -1,0 +1,1 @@
+fun main() = IntArray(readln().toInt()) { readln().toInt() }.sum().let(::println)
